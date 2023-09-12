@@ -15,6 +15,6 @@ Característica: Yo como usuario quiero comprar productos aletorios
     Y validara el mumero de productos
     Ejemplos:
       | categoria  | subCategoria | cantidad |
-      | Dormitorio | Cabeceros    | 2        |
+      | Dormitorio | Cabeceros    | 5        |
 
 
