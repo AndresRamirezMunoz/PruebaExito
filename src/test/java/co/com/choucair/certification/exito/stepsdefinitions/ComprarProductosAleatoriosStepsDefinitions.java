@@ -6,19 +6,21 @@ import co.com.choucair.certification.exito.questions.ValidateProductsNames;
 import co.com.choucair.certification.exito.questions.ValidateProductsTotalAmount;
 import co.com.choucair.certification.exito.tasks.AddArticles;
 import co.com.choucair.certification.exito.tasks.SelectSubcategory;
-import cucumber.api.java.Before;
-import cucumber.api.java.es.Cuando;
-import cucumber.api.java.es.Dado;
-import cucumber.api.java.es.Entonces;
-import cucumber.api.java.es.Y;
+
+
+import io.cucumber.java.Before;
+import io.cucumber.java.es.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.Cast;
 import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
+
+import static net.serenitybdd.screenplay.actors.OnStage.setTheStage;
 
 public class ComprarProductosAleatoriosStepsDefinitions {
 
@@ -28,9 +30,15 @@ public class ComprarProductosAleatoriosStepsDefinitions {
 
     @Before
     public void configurar() {
-        WebDriverManager.edgedriver().setup();
+    /**    WebDriverManager.edgedriver().setup();
         OnStage.setTheStage(Cast.whereEveryoneCan(BrowseTheWeb.with(driver)));//
         OnStage.theActorCalled("Prueba");
+        driver.manage().window().maximize();
+     */
+        WebDriverManager.chromedriver().setup();
+        setTheStage(OnlineCast.ofStandardActors());
+        OnStage.theActorCalled("Pruibaa");
+        OnStage.theActorInTheSpotlight().can(BrowseTheWeb.with(driver));
         driver.manage().window().maximize();
     }
 
